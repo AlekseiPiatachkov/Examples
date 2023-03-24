@@ -2,9 +2,9 @@
 // V = S/T, T = S/V, S = T*V
 
 
-int a = 2, b = 3, c = 2; // m/s
+int a = 2, b = 5, c = 3; // m/s
 int Distans = 10000;
-int currentS = 0; // CurrentDistans
+int currentS = 0; // Distans 
 int x = 0; // FirstFriend
 int y = 0; // time
 
@@ -15,17 +15,18 @@ while(Distans > 10)
     if(x == 0)
     {
         y = Distans/(c + a);
+        currentS = y * (a + b);
         x = 1;
+        Distans = currentS - (y * (a + b));
     }
-
-    if(x == 1)
+    else
     {
         y = Distans/(c + b);
+        currentS = y * (a + b);
         x = 0;
-
+        Distans = currentS - (y * (a + b));
     }
-    currentS = Distans - y;
-    Distans = currentS;
+        
     count++;
 }
 Console.WriteLine(count);
